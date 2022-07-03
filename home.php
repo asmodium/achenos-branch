@@ -1,9 +1,4 @@
 <?php require_once 'vars.php'; require_once 'config/config.php'; require_once 'lib/handling.php'; require_once 'lib/Session.php';   ?>
-<?php 
-  Session::checkSession();
-  $user = new Handling(); 
-
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -38,12 +33,12 @@
                         include(DIR.'/iframes/profile.php');
                         break;
                     default:
-                        include(DIR.'/iframes/home.php');
+                        include(DIR.'/home.php');
                         break;
                 }
             }
             else{
-                include(DIR.'/iframes/home.php');
+                include(DIR.'/home.php');
             }            
         ?>
     </div>
