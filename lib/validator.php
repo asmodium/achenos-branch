@@ -4,10 +4,10 @@ class RegisterValidator {
 
     private $data;
     private $errors = [];
+    
     private static $fields = ['login', 'password', 'confirmpassword', 'email', 'confirmemail'];
   
-    public function __construct($post_data){
-      $this->data = $post_data;
+    public function __construct(){
     }
   
     public function validateForm(){
@@ -18,25 +18,37 @@ class RegisterValidator {
           return;
         }
       }
-  
+      
+      $this->validateName();
       $this->validateLogin();
       $this->validateEmail();
       $this->confirmEmail();
+      $this->checkEmail();
       $this->validatePassword();
       $this->confirmPassword();
       return $this->errors;
   
     }
   
+    private function validateName(){
+      $val = trim($this->data['name']);
+
+      if(empty($val)){
+        $this->addError('name', '*Este campo deve ser preenchido');
+      } else {
+      }
+    }
+
+
     private function validateLogin(){
   
-      $val = trim($this->data['login']);
+      $val = trim($this->data['username']);
   
       if(empty($val)){
-        $this->addError('login', 'Este campo deve ser preenchido');
+        $this->addError('username', '*Este campo deve ser preenchido');
       } else {
         if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $val)){
-          $this->addError('login','O login deve conter entre 6 e 12 caracteres alfanuméricos');
+          $this->addError('username','O nome de usuário deve conter entre 6 e 12 caracteres alfanuméricos');
         }
       }
   
@@ -55,6 +67,18 @@ class RegisterValidator {
       }
   
     }
+    private function checkEmail(){
+      $email = $this->data['email'];
+			$sql 	= "SELECT email FROM usuarios WHERE email= :email";
+			$query = $this->db->pdo->prepare($sql);
+			$query->bindValue(':email',$email);
+			$query->execute();
+			if ($query->rowCount() > 0) {
+				return true;
+			}else{
+				return false;
+			}
+		}
 
     private function confirmEmail(){
 
