@@ -3,7 +3,7 @@
     Session::checkLogin();
 	$user = new Handling(); 
     ?>
-<div class="container form-control">
+<div class="container" style="color: white;">
 <div class="row">
     <div class="col">
         <p class="h2 text-center mt-2">Nossos Prestadores</p>
@@ -11,7 +11,7 @@
 </div>
 <div class="row">
     <div class="col">
-        <table class="table table-striped mt-3">
+        <table class="table table-striped mt-3" style="background-color: white;">
             <thead class="table-dark">
                 <tr>
                     <td class="text-center">Nome</td>
