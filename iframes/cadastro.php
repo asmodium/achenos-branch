@@ -6,11 +6,11 @@
 	}
 ?>
 
-  <div class="position-absolute top-50 start-50 translate-middle">
+  <div class="position-relative top-50 start-50 translate-middle">
     <div class="container">
-      <div class="row form-control">
+      <div class="form-control">
         <div><p class="h2 form-group text-center">Cadastro</p></br></br>
-        <?php
+          <?php
                         if (isset($userReg)) {
                           echo $userReg;
                         }
@@ -19,50 +19,44 @@
             <div class="form-group row">
               <label for="name" class="col-sm-4 col-form-label">Nome</label>
               <div class="col">
-                <input type="text" class="form-input form-control" id="name" name="name" placeholder="Nome">
-
+                <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
               </div>
-            </div></br>
+            </div><br>
             <div class="form-group row">
               <label for="username" class="col-sm-4 col-form-label">Nome de usuário</label>
               <div class="col">
-                <input type="text" class="form-input form-control" id="username" name="username" placeholder="Nome de usuário">
-
+                <input type="text" class="form-control" id="username" name="username" placeholder="Nome de usuário">
               </div>
-            </div></br>
+            </div><br>
             <div class="form-group row">
               <label for="password" class="col-sm-4 col-form-label">Senha</label>
               <div class="col">
-                <input type="password" class="form-input form-control" id="password" name="password" placeholder="Senha">
-
+                <input type="password" class="form-control" id="password" name="password" placeholder="Senha">
               </div>
-            </div></br>
+            </div><br>
             <div class="form-group row">
               <label for="password" class="col-sm-4 col-form-label">Confirmar a senha</label>
               <div class="col">
-                <input type="password" class="form-input form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirmar a senha">
-
-            </div></br>
+                <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" placeholder="Confirmar a senha">
+              </div>
+            </div><br>
             <div class="form-group row">
               <label for="email" class="col-sm-4 col-form-label">Email</label>
               <div class="col">
-                <input type="email" class="form-input form-control" id="email" name="email" placeholder="Email">
-                <div class="is-invalid">
-
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
               </div>
-            </div></br>
+            </div><br>
             <div class="form-group row">
               <label for="email" class="col-sm-4 col-form-label">Confirme o Email</label>
               <div class="col">
-                <input type="email" class="form-input form-control" id="confirmemail" name="confirmemail" placeholder="Confirmar o email">
-
+                <input type="email" class="form-control" id="confirmemail" name="confirmemail" placeholder="Confirmar o email">
               </div>
-            </div></br>
+            </div><br>
             <div class="form-group row">
               <div class="col">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1" required>
-                  <label class="control-label form-check-label" for="gridCheck1">
+                  <input class="form-check-input" type="checkbox" id="Check1" required>
+                  <label class="control-label form-check-label" for="Check1">
                     Ao clicar em cadastrar, você confirma estar de acordo com os nossos <a href="#">termos de serviço</a> e afins.
                   </label>
                 </div>
@@ -76,4 +70,3 @@
       </div>
     </div>
   </div>
-</div>

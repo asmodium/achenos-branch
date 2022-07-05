@@ -1,4 +1,6 @@
 <?php require_once 'vars.php'; require_once 'config/config.php'; require_once 'lib/handling.php'; require_once 'lib/Session.php';   ?>
+<?php  Session::checkLogin();
+$user = new Handling(); ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -10,11 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
     <title>Achenos - O seu profissional</title>
 </head>
-<body>
-    <div name="navbar">
+<body style="background-color: rgb(40,0,60);">
+    <div class="row position-static" name="navbar">
     <?php include_once(DIR."/include/navbar.php"); ?>
-    </div>
-    <div name="container" >
+    
+    <div class="" name="container" >
         
     <?php
             if(isset($_GET['p'])){
@@ -45,5 +47,6 @@
             }            
         ?>
     </div>
+</div>
 </body>
 </html>

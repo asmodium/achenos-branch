@@ -3,7 +3,7 @@
     Session::checkLogin();
 	$user = new Handling(); 
     ?>
-
+<div class="container form-control">
 <div class="row">
     <div class="col">
         <p class="h2 text-center mt-2">Nossos Prestadores</p>
@@ -28,4 +28,5 @@
             </tbody>            
         </table>
     </div>
+</div>
 </div>
