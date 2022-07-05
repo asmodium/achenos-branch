@@ -15,37 +15,4 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
     <title>Achenos - O seu profissional</title>
 </head>
-<body>
-    <div name="navbar">
-    <?php include_once(DIR."/include/navbar.php"); ?>
-    </div>
-    <div name="container">
-        
-    <?php
-            if(isset($_GET['p'])){
-                $pagina = $_GET['p'];
-                switch($pagina){
-                    case "prestadores":
-                        include(DIR.'/iframes/prestadores.php');
-                        break;
-                    case "cadastro":
-                        include(DIR.'/iframes/cadastro.php');
-                        break;
-                    case "login":
-                        include(DIR.'/iframes/login.php');
-                        break;
-                    case "perfil":
-                        include(DIR.'/iframes/profile.php');
-                        break;
-                    default:
-                        include(DIR.'/iframes/home.php');
-                        break;
-                }
-            }
-            else{
-                include(DIR.'/iframes/home.php');
-            }            
-        ?>
-    </div>
-</body>
 </html>

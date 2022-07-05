@@ -52,10 +52,10 @@ class Handling{
 				Session::set('name',$result->name);
 				Session::set('username',$result->username);
 				Session::set('email',$result->email);
-				Session::set('loginmsg',"<div class='alert alert-success'><strong>Logado com sucesso, redirecionando para a página principal.</strong></div>");
-				header('Location:index.php');
+				Session::set('loginmsg',"<div class='alert alert-success'><strong>Seja bem vindo $username</strong></div>");
+				header('Location:home.php');
 			}else{
-				$msg = "<div class='alert alert-danger'><strong>Dados não encontrados</strong></div>";
+				$msg = "<div class='alert alert-danger'><strong>Usuário ou senha incorretos</strong></div>";
 				return $msg;
 			}
 		}

@@ -1,5 +1,7 @@
 <?php
 	include_once DIR.'/lib/Session.php';
+  include_once DIR.'/lib/handling.php';
+  include_once DIR.'/lib/queryhandling.php';
 	Session::init();
 	if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 		Session::destroy();
@@ -39,9 +41,10 @@
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
         </li>-->
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Busca" aria-label="Busca">
-        <button class="btn btn-outline-success" type="submit">Busca</button>
+
+      <form class="d-flex" action="" method="POST">
+        <input class="form-control me-2" type="search" name="searchkey" id="searchkey" placeholder="Busca" aria-label="Busca">
+        <button class="btn btn-outline-success" name="search" id="search" type="submit" href="?p=busca">Busca</button>
       </form>
       
       <ul class="nav navbar-nav navbar-right">
@@ -50,8 +53,16 @@
 			 	<li class="nav-item"><a class="nav-link" href="?p=login">Login</a></li>
         <li class="nav-item"><a class="nav-link" href="?p=cadastro">Cadastro</a></li>
 			 	<?php }else{ ?>
-			 		<li><a href="?p=perfil">Perfil</a></li>
-			 		<li><a href="?action=logout">Logout</a></li>
+           <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <li><a class="dropdown-item" href="?p=perfil">Perfil</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="?action=logout">Logout</a></li>
+          </ul>
+        </li>
 			 	<?php }?>
 			 </ul>
     </div>

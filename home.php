@@ -14,31 +14,34 @@
     <div name="navbar">
     <?php include_once(DIR."/include/navbar.php"); ?>
     </div>
-    <div name="container">
+    <div name="container" >
         
     <?php
             if(isset($_GET['p'])){
                 $pagina = $_GET['p'];
                 switch($pagina){
                     case "prestadores":
-                        include(DIR.'/iframes/prestadores.php');
+                        include_once(DIR.'/iframes/prestadores.php');
                         break;
                     case "cadastro":
-                        include(DIR.'/iframes/cadastro.php');
+                        include_once(DIR.'/iframes/cadastro.php');
                         break;
                     case "login":
-                        include(DIR.'/iframes/login.php');
+                        include_once(DIR.'/iframes/login.php');
                         break;
                     case "perfil":
-                        include(DIR.'/iframes/profile.php');
+                        include_once(DIR.'/iframes/profile.php');
+                        break;
+                    case "busca":
+                        include_once(DIR.'/iframes/search.php');
                         break;
                     default:
-                        include(DIR.'/home.php');
+                        include_once(DIR.'/home.php');
                         break;
                 }
             }
             else{
-                include(DIR.'/home.php');
+                include_once(DIR.'/home.php');
             }            
         ?>
     </div>

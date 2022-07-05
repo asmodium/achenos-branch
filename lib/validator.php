@@ -4,11 +4,12 @@ class RegisterValidator {
 
     private $data;
     private $errors = [];
-    
-    private static $fields = ['login', 'password', 'confirmpassword', 'email', 'confirmemail'];
+    private static $fields = ['name', 'username', 'password', 'confirmpassword', 'email', 'confirmemail'];
   
-    public function __construct(){
+    public function __construct($post_data){
+      $this->data = $post_data;
     }
+    private function __clone(){}
   
     public function validateForm(){
   
@@ -80,7 +81,7 @@ class RegisterValidator {
 			}
 		}
 
-    private function confirmEmail(){
+    public function confirmEmail(){
 
       $val = trim($this->data['email']);
       $confirm = trim($this->data['confirmemail']);

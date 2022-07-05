@@ -1,12 +1,11 @@
 <?php include_once DIR.'/lib/handling.php'; include_once DIR.'/lib/queryhandling.php'; ?>
-<?php 
-    Session::checkLogin();
-	$user = new Handling(); 
-    ?>
+<?php Session::checkLogin(); 
+    $user = new Handling();
+?>
 
 <div class="row">
     <div class="col">
-        <p class="h2 text-center mt-2">Nossos Prestadores</p>
+        <p class="h2 text-center mt-2">Busca</p>
     </div>
 </div>
 <div class="row">
@@ -20,11 +19,13 @@
                 </tr>
             </thead>
             <tbody>
-                <?php
-                $it = new RecursiveArrayIterator();
-                $result = new TableRows($it);
-                $result->queryWorkers();
-                ?>
+            <?php
+          $it = new RecursiveArrayIterator();
+          $result = new TableRows($it);
+          if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['search']) && isset($_POST['searchkey'])){
+            $result->search($_POST);
+        }
+      ?>
             </tbody>            
         </table>
     </div>

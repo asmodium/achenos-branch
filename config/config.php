@@ -14,7 +14,7 @@ class Database{
             $link->exec('SET CHARACTER SET utf8');
             $this->pdo = $link;
             }catch(PDOException $e){
-                die('Failed to connect Database...'.$e->getMessage());
+                die('Erro de conexão ao banco de dados. '.$e->getMessage());
             }
         }
     }
