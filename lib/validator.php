@@ -48,8 +48,8 @@ class RegisterValidator {
       if(empty($val)){
         $this->addError('username', '*Este campo deve ser preenchido');
       } else {
-        if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $val)){
-          $this->addError('username','O nome de usuário deve conter entre 6 e 12 caracteres alfanuméricos');
+        if(!preg_match('/^[a-zA-Z0-9]{6,18}$/', $val)){
+          $this->addError('username','O nome de usuário deve conter entre 6 e 18 caracteres alfanuméricos');
         }
       }
   

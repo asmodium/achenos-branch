@@ -11,8 +11,8 @@
   <div class="row">
    <div class="col-lg-8 col-lg-offset-2">
     <div class="panel panel-default">
-     <div class="panel-heading text-info">
-      Painel do usuário
+     <div class="panel-heading text-info h2">
+      Seu perfil <hr>
       <div class="">
        <?php 
         $name = Session::get('loginmsg');

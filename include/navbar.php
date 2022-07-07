@@ -8,9 +8,9 @@
 	}
 	
 ?>
-
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container sticky-top">
+<nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="?p=launch"><img src="img/logo.png" alt="Logo" style="width:40px;" class="">Achenos</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+          <ul class="dropdown-menu fixed-top" aria-labelledby="navbarScrollingDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -56,6 +56,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
             <li><a class="dropdown-item" href="?p=perfil">Perfil</a></li>
+            <li><a class="dropdown-item" href="?p=editprofile">Configurações</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="?action=logout">Logout</a></li>
           </ul>
@@ -65,3 +66,4 @@
     </div>
   </div>
 </nav>
+</div>
