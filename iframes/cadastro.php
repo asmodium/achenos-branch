@@ -6,7 +6,7 @@
 	}
 ?>
 
-  <div class="position-relative top-50 start-50 translate-middle">
+  <div class="position-absolute top-50 start-50 translate-middle">
     <div class="container">
       <div class="form-control">
         <div><p class="h2 form-group text-center">Cadastro</p></br></br>

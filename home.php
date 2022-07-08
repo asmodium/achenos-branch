@@ -22,8 +22,8 @@ $user = new Handling(); ?>
     <div class="container" name="container" >
         
     <?php
-            if(isset($_GET['p'])){
-                $pagina = $_GET['p'];
+            if(isset($_GET['tab'])){
+                $pagina = $_GET['tab'];
                 switch($pagina){
                     case "prestadores":
                         include_once(DIR.'/iframes/prestadores.php');
@@ -36,9 +36,6 @@ $user = new Handling(); ?>
                         break;
                     case "perfil":
                         include_once(DIR.'/iframes/profile.php');
-                        break;
-                    case "edit_p":
-                        include_once(DIR.'/iframes/editprofile.php');
                         break;
                     case "busca":
                         include_once(DIR.'/iframes/search.php');

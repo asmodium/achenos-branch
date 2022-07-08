@@ -32,7 +32,7 @@ class Handling{
 
 		}
 
-		public function getLoginUser($username,$password){
+		private function getLoginUser($username,$password){
 			$sql = "SELECT * FROM usuarios WHERE username=:username AND password=:password ";
 			$query =  $this->db->pdo->prepare($sql);
 			$query->bindValue(':username',$username);
@@ -54,7 +54,6 @@ class Handling{
 				Session::set('username',$result->username);
 				Session::set('email',$result->email);
 				Session::set('loginmsg',"<div class='alert alert-success'><strong>Seja bem vindo $username</strong></div>");
-				header('Location:home.php');
 			}else{
 				$msg = "<div class='alert alert-danger'><strong>Usuário ou senha incorretos</strong></div>";
 				return $msg;
@@ -77,6 +76,12 @@ class Handling{
 		$username = filter_var($username,FILTER_SANITIZE_FULL_SPECIAL_CHARS,FILTER_FLAG_STRIP_HIGH);
 		$result = $this->getUpdateName($name,$username);
 		if ($result){
+			$sql = "SELECT * FROM usuarios WHERE username=?";
+			$query = $this->db->pdo->prepare($sql);
+			$query->bindValue(1,$username);
+			$query->execute();
+			$sname1= $query->fetch(PDO::FETCH_OBJ);
+			Session::set('name',$sname1->name);
 			$msg = "<div class='alert alert-sucess'><strong>Nome alterado com sucesso!</strong></div>";
 			return $msg;
 		} else {
@@ -100,6 +105,12 @@ class Handling{
 		$email	  =	$data['email'];
 		$result = $this->getUpdateEmail($username,$email);
 		if ($result){
+			$sql = "SELECT * FROM usuarios WHERE username=?";
+			$query = $this->db->pdo->prepare($sql);
+			$query->bindValue(1,$username);
+			$query->execute();
+			$sname1= $query->fetch(PDO::FETCH_OBJ);
+			Session::set('email',$sname1->email);
 			$msg = "<div class='alert alert-sucess'><strong>Endereço de e-mail alterado com sucesso!</strong></div>";
 			return $msg;
 		} else {
@@ -143,10 +154,9 @@ class Handling{
 	}
 
 	private function getUpdatePicture($username,$profilepic){
-		$sql = "UPDATE usuarios SET profilepic=:profilepic WHERE username=:username";
+		$sql = "UPDATE usuarios SET profilepic=? WHERE username=?";
 		$query = $this->db->pdo->prepare($sql);
-		$query->bindValue(':username',$username);
-		$query->bindValue(':profilepic',$profilepic);
+		$query->bindValue($profilepic,$username);
 		$result = $query->execute();
 		return $result;
 	}
@@ -167,6 +177,12 @@ class Handling{
 					if(move_uploaded_file($image_temp, $path)){
 						$result = $this->getUpdatePicture($username,$profilepic);
 						}if ($result){
+							$sql = "SELECT * FROM usuarios WHERE username=?";
+							$query = $this->db->pdo->prepare($sql);
+							$query->bindValue(1,$username);
+							$query->execute();
+							$sname1= $query->fetch(PDO::FETCH_OBJ);
+							Session::set('profilepic',$sname1->profilepic);
 							$msg = "<div class='alert alert-sucess'><strong>Imagem alterada com sucesso!</strong></div>";
 							return $msg;
 						} else {

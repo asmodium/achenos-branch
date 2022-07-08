@@ -1,4 +1,5 @@
 <?php
+  require_once DIR.'/vars.php';
 	include_once DIR.'/lib/Session.php';
   include_once DIR.'/lib/handling.php';
   include_once DIR.'/lib/queryhandling.php';
@@ -12,14 +13,14 @@
 <div class="container sticky-top">
 <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="?p=launch"><img src="img/logo.png" alt="Logo" style="width:40px;" class="">Achenos</a>
+    <a class="navbar-brand" href="?tab=launch"><img src="../img/logo.png" alt="Logo" style="width:40px;" class="">Achenos</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
-          <a class="nav-link" href="?p=prestadores">Prestadores</a>
+          <a class="nav-link" href="?tab=prestadores">Prestadores</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -47,16 +48,16 @@
       <ul class="nav navbar-nav navbar-right">
 			 <?php
 			  if(empty(Session::get('id'))){ ?>
-			 	<li class="nav-item"><a class="nav-link" href="?p=login">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="?p=cadastro">Cadastro</a></li>
+			 	<li class="nav-item"><a class="nav-link" href="?tab=login">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="?tab=cadastro">Cadastro</a></li>
 			 	<?php }else{ ?>
            <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" width="40" height="40" class="rounded-circle">
+          <img src="<?php echo Session::get('profilepic');?>" width="40" height="40" class="rounded-circle">
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="?p=perfil">Perfil</a></li>
-            <li><a class="dropdown-item" href="?p=editprofile">Configurações</a></li>
+            <li><a class="dropdown-item" href="?tab=perfil">Perfil</a></li>
+            <li><a class="dropdown-item" href="achenos/../security/index.php">Configurações</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="?action=logout">Logout</a></li>
           </ul>
